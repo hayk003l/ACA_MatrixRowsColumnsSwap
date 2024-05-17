@@ -15,6 +15,7 @@ public:
     Matrix& operator++();
     Matrix operator++(int);
 
+    Matrix operator+(const Matrix& obj);
 public:
     void fillMatrix() const;
     void printMatrix() const;

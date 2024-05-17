@@ -5,14 +5,14 @@
 
 
 int main() {
-    unsigned int row = 0;
-    unsigned int column = 0;
+    // unsigned int row = 0;
+    // unsigned int column = 0;
 
-    std::cout << "Enter the number of MATRIX rows." << std::endl;
-    std::cin >> row;
+    // std::cout << "Enter the number of MATRIX rows." << std::endl;
+    // std::cin >> row;
 
-    std::cout << "Enter the number of MATRIX columns." << std::endl;
-    std::cin >> column;
+    // std::cout << "Enter the number of MATRIX columns." << std::endl;
+    // std::cin >> column;
 
     // Matrix matrixOne(row, column);
     // matrixOne.fillMatrix();
@@ -36,20 +36,30 @@ int main() {
     // std::cout << "Third matrix after assignment." << std::endl;
     // matrixThree.printMatrix();
 
-    Matrix matrixObj(row, column);
+    // Matrix matrixObj(row, column);
     
-    matrixObj.fillMatrix();
+    // matrixObj.fillMatrix();
 
-    matrixObj.printMatrix();
+    // matrixObj.printMatrix();
 
-    std::cout << std::endl;
-    matrixObj++;
-    matrixObj.printMatrix();
+    // std::cout << std::endl;
+    // matrixObj++;
+    // matrixObj.printMatrix();
    
 
-    std::cout << std::endl;
-    ++matrixObj;
-    matrixObj.printMatrix();
+    // std::cout << std::endl;
+    // ++matrixObj;
+    // matrixObj.printMatrix();
+
+    Matrix obj1(3,3);
+    obj1.fillMatrix();
+
+    Matrix obj2(3,3);
+    obj2.fillMatrix();
+
+    Matrix obj3(obj1 + obj2);
+    obj3.printMatrix();
+
 
     return 0;
 }

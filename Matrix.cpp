@@ -1,6 +1,7 @@
 #include "Matrix.hpp"
     
 Matrix::Matrix(const int& row, const int& column) : _row(row), _column(column) {          
+    std::cout << "ctor" << std::endl;
     _matrix = new int*[_row];
 
     for (int i = 0; i < _row; ++i) {
@@ -8,7 +9,7 @@ Matrix::Matrix(const int& row, const int& column) : _row(row), _column(column) {
     }
 }                       // parametrize constructor
 
-Matrix::Matrix() {};                      // default constructor
+Matrix::Matrix() {std::cout << "def ctor" << std::endl;};                      // default constructor
 
 Matrix::~Matrix() {                      // destructor
 
@@ -21,7 +22,7 @@ Matrix::~Matrix() {                      // destructor
 }
 
 Matrix::Matrix (const Matrix& obj) {             // copy constructor
-    
+    std::cout << "copy ctor" << std::endl;
     this->_row = obj._row;
     this->_column = obj._column;
     _matrix = new int*[_row];
@@ -75,16 +76,22 @@ Matrix& Matrix::operator=(const Matrix& obj) {   // operator assignment
 }
 
 Matrix::Matrix(Matrix&& obj) : _row(obj._row), _column(obj._column) {
+    std::cout << "move ctor" << std::endl;
     _matrix = obj._matrix;
     obj._matrix = nullptr;
+    obj._row = 0;
+    obj._column = 0;
 }
 
 Matrix& Matrix::operator=(Matrix&& obj){
+    std::cout << "move assignment" << std::endl;
     if(this != &obj) {
         _row = obj._row;
         _column = obj._column;
         _matrix = obj._matrix;
         obj._matrix = nullptr;
+        obj._row = 0;
+        obj._column = 0;
     }
     return *this;
 }
@@ -114,6 +121,16 @@ Matrix Matrix::operator++(int) {
     }
 
     return tempMatrix;
+}
+
+Matrix Matrix::operator+(const Matrix& obj) {
+    Matrix temp(_row, _column);
+    for (int i = 0; i < _row; ++i) {
+        for (int j = 0; j < _column; ++j) {
+            temp._matrix[i][j] = this->_matrix[i][j] + obj._matrix[i][j];
+        }
+    }
+    return temp;
 }
 
 
