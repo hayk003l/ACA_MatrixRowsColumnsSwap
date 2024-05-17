@@ -74,6 +74,20 @@ Matrix& Matrix::operator=(const Matrix& obj) {   // operator assignment
     return *this;
 }
 
+Matrix::Matrix(Matrix&& obj) : _row(obj._row), _column(obj._column) {
+    _matrix = obj._matrix;
+    obj._matrix = nullptr;
+}
+
+Matrix& Matrix::operator=(Matrix&& obj){
+    if(this != &obj) {
+        _row = obj._row;
+        _column = obj._column;
+        _matrix = obj._matrix;
+        obj._matrix = nullptr;
+    }
+    return *this;
+}
 
 Matrix&  Matrix::operator++() {
     for (int i = 0; i < _row; ++i) {

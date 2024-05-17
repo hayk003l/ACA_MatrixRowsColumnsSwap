@@ -10,6 +10,8 @@ public:
     virtual ~Matrix();
     Matrix (const Matrix& obj);
     Matrix& operator=(const Matrix& obj);
+    Matrix(Matrix&& obj);
+    Matrix& operator=(Matrix&& obj);
     Matrix& operator++();
     Matrix operator++(int);
 
