@@ -160,3 +160,15 @@ void Matrix::swapMatrixRowsColumns(Matrix& matrixOne) {
         }
     }
 }
+
+int& Matrix::at(const int& row, const int& column) {
+    try {
+        if (row < 0 || row > _row || column < 0 || column > _column) {
+            throw std::out_of_range("Error! Wrong cordinates.");
+        }
+    }
+    catch (const std::out_of_range& err) {
+        std::cout << err.what() << std::endl;
+    }
+    return _matrix[row][column];
+}

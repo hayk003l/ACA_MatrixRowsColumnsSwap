@@ -53,12 +53,9 @@ int main() {
 
     Matrix obj1(3,3);
     obj1.fillMatrix();
+    obj1.printMatrix();
 
-    Matrix obj2(3,3);
-    obj2.fillMatrix();
-
-    Matrix obj3(obj1 + obj2);
-    obj3.printMatrix();
+    std::cout << obj1.at(4, 1) << std::endl;
 
 
     return 0;

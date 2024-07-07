@@ -14,13 +14,13 @@ public:
     Matrix& operator=(Matrix&& obj);
     Matrix& operator++();
     Matrix operator++(int);
-
     Matrix operator+(const Matrix& obj);
+
 public:
     void fillMatrix() const;
     void printMatrix() const;
     void swapMatrixRowsColumns(Matrix& matrixOne);
-
+    int& at(const int& row, const int& column);
 
 private:
     int** _matrix = nullptr;
