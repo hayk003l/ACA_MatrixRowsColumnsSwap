@@ -55,7 +55,12 @@ int main() {
     obj1.fillMatrix();
     obj1.printMatrix();
 
-    std::cout << obj1.at(4, 1) << std::endl;
+    try {
+        std::cout << obj1.at(4, 1) << std::endl;
+    }
+    catch (const std::out_of_range& err) {
+        std::cout << err.what() << std::endl;
+    }
 
 
     return 0;
